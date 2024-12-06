@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background: linear-gradient(#24363d 30%, #203e43);
+    /*background: rgb(0, 44, 63);*/
+}
+
+.my-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+}
+
+.my-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.my-scrollbar::-webkit-scrollbar-thumb {
+    background-color: linear-gradient(#002c3f 30%, #435b62);
+}
+
+
+/* Define the gradient colors and angle as CSS variables */
+:root {
+    --color1: #4d8098;
+    --color2: #3f697a;
+    --color3: #314f5b;
+    --angle: 45deg;
+}
+
+/* Create a class for the button with the gradient animation */
+.gradient-button {
+    /* Use the CSS variables to create a linear gradient background */
+    background: linear-gradient(var(--angle), var(--color1), var(--color2), var(--color3));
+    /* Set the background size to be larger than the button size */
+    background-size: 300%;
+    /* Set the transition property for the background position */
+    transition: background-position 0.5s;
+}
+
+/* Create a hover effect for the button */
+.gradient-button:hover {
+    /* Change the background position to create a moving gradient effect */
+    background-position: right bottom;
+}
+
+/* Remove the shadow from the button */
+.shadow-lg {
+    box-shadow: none;
+}
+
+/* Add an outer shadow on hover */
+.shadow-lg:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
