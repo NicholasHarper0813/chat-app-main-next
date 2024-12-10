@@ -1,45 +1,29 @@
 import EVENTS from "@/app/config/events";
 import {useSocket} from "@/app/context/socket.context";
 import {useState, useRef} from "react";
-// Import motion component from Framer Motion
-import {motion} from "framer-motion";
-// Import menu and chevron icons from React Icon Library
 import {FiMenu, FiChevronLeft, FiChevronsRight} from "react-icons/fi";
 import {FiPlus} from "react-icons/fi";
+import {motion} from "framer-motion";
 
 const RoomsContainer = () => {
     const {socket, roomId, rooms} = useSocket();
-    const newRoomRef = useRef<HTMLInputElement>(null);
-    // Add a ref for the timer input
-    const timerRef = useRef<HTMLInputElement>(null);
-    // Add a ref for the checkbox input
-    const checkboxRef = useRef<HTMLInputElement>(null);
-    // Create a state variable to toggle the menu
     const [showMenu, setShowMenu] = useState(false);
-    // Create a state variable to toggle the rooms container
     const [showRooms, setShowRooms] = useState(true);
+    const newRoomRef = useRef<HTMLInputElement>(null);
+    const timerRef = useRef<HTMLInputElement>(null);
+    const checkboxRef = useRef<HTMLInputElement>(null);
 
     function handleNewRoom() {
-        // get the room name
         const roomName = newRoomRef.current?.value || "";
-
         if (!String(roomName).trim()) return;
-
-        // emit room created event
+        
         socket.emit(EVENTS.CLIENT.CREATE_ROOM, {roomName});
-
-        // set room name input to empty string
         newRoomRef.current!.value = "";
 
-        // get the timer value
         const timerValue = timerRef.current?.value || "";
-
-        // get the checkbox value
         const checkboxValue = checkboxRef.current?.checked || false;
 
-        // check if the checkbox is checked and the timer value is valid
         if (checkboxValue && Number(timerValue) > 0) {
-            // emit set timer event with the timer value
             socket.emit(EVENTS.CLIENT.SET_TIMER, Number(timerValue));
         }
 
@@ -51,20 +35,15 @@ const RoomsContainer = () => {
     function handleJoinRoom(key: string) {
         if (key === roomId) return;
 
-        // emit join room event
         socket.emit(EVENTS.CLIENT.JOIN_ROOM, key);
-
-        // emit request timer event
         socket.emit(EVENTS.CLIENT.REQUEST_TIMER);
     }
 
     function handleToggleMenu() {
-        // toggle the visibility of the room list using the state variable
         setShowMenu(!showMenu);
     }
 
     function handleToggleRooms() {
-        // toggle the visibility of the room container using the state variable
         setShowRooms(!showRooms);
     }
 
