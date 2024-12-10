@@ -1,9 +1,5 @@
 
-# NextJS ChatApp 🗣️
-
-![5](https://github.com/Subham-Maity/next-mern-chat/assets/97989643/fbf7c8cd-a902-48b4-a532-415d357049b4)
-
-![7](https://github.com/Subham-Maity/next-mern-chat/assets/97989643/bba4aab9-3a58-4481-a78c-b940ccad1757)
+# Mern ChatApp
 
 ## Description
 
@@ -13,7 +9,7 @@ This is a chat application built with `NextJS`, `Socket.io`, and `Typescript`. I
 
 I created this project because I wanted to learn how to use `NextJS` and `Socket.io` together to build a real-time application. I also wanted to improve my skills in `Typescript and NodeJs` and `NextJS`. This project solves the problem of having a simple and easy way to communicate with other people online.
 
-This project is an improved version of my previous `Demo chat app with basic timer functionality using html and nodejs`, which you can check out [**here**](https://github.com/Subham-Maity/basic-chatapp). The main differences are:
+This project is an improved version of my previous `Demo chat app with basic timer functionality using html and nodejs`, which you can check out. The main differences are:
 
 - This project uses `NextJS and NodeJS` as a React framework for production, which provides features such as server-side rendering, code splitting, and routing.
 - This project uses `Typescript` to make the code more readable, understandable, and easy to implement new features in the future.
@@ -102,14 +98,6 @@ yarn install
 npm run dev
 
 # or
-
-yarn dev
-```
-
-https://github.com/Subham-Maity/next-mern-chat/assets/97989643/abb58584-e819-4976-8ca8-a57396807cdd
-
-
----
 
 ## Backend 🧠
 
@@ -288,9 +276,6 @@ This event is emitted by the server when a conversation ends in a room. It sends
 ## How to contribute
 
 If you like chat-app and want to contribute to its development, you are more than welcome! Here are some ways you can help:
-
-- Report any bugs or issues you find on the [issues page](https://github.com/Subham-Maity/next-mern-chat/issues).
-- Suggest new features or improvements on the [issues page](https://github.com/Subham-Maity/next-mern-chat/issues).
 - Fork this repository and submit pull requests with your code changes.
 - Share chat-app with your friends and spread the word.
 
@@ -308,8 +293,3 @@ Chat-app is built with some of the most popular and powerful technologies in web
 - [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript at Any Scale
 
 These technologies allow me to create a fast, scalable, and user-friendly chat application that works across different devices and browsers.
-
-## Learn more
-
-If you want to learn more about me or my other projects, you can check out my [GitHub profile](https://github.com/Subham-Maity) or join the [Discord Server](https://discord.gg/akw4AxyE). You can also read my blog posts on [DEV Community](https://dev.to/codexam) and [Hashnode](https://codexam.hashnode.dev/).
-
