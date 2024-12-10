@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "lerna run dev --parallel"
   },
-  "name": "next-mern-chat",
+  "name": "mern-chat",
   "workspaces": [
     "packages/*"
   ]
