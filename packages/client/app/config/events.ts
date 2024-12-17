@@ -1,13 +1,16 @@
-const EVENTS = {
+const EVENTS =
+{
     connection: "connection",
-    CLIENT: {
+    CLIENT: 
+    {
         CREATE_ROOM: "CREATE_ROOM",
         SEND_ROOM_MESSAGE: "SEND_ROOM_MESSAGE",
         JOIN_ROOM: "JOIN_ROOM",
         SET_TIMER: "SET_TIMER", // Add this line
         REQUEST_TIMER: "REQUEST_TIMER", // Add this line
     },
-    SERVER: {
+    SERVER:
+    {
         ROOMS: "ROOMS",
         JOINED_ROOM: "JOINED_ROOM",
         ROOM_MESSAGE: "ROOM_MESSAGE",
