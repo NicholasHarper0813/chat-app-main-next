@@ -1,16 +1,16 @@
 import EVENTS from "@/app/config/events";
+import {FiMenu, FiChevronLeft, FiChevronsRight} from "react-icons/fi";
 import {useSocket} from "@/app/context/socket.context";
 import {useState, useRef} from "react";
 import {motion} from "framer-motion";
-import {FiMenu, FiChevronLeft, FiChevronsRight} from "react-icons/fi";
 import {FiPlus} from "react-icons/fi";
 
 const RoomsContainer = () => {
     const {socket, roomId, rooms} = useSocket();
     const [showMenu, setShowMenu] = useState(false);
     const [showRooms, setShowRooms] = useState(true);
-    const newRoomRef = useRef<HTMLInputElement>(null);
     const checkboxRef = useRef<HTMLInputElement>(null);
+    const newRoomRef = useRef<HTMLInputElement>(null);
     const timerRef = useRef<HTMLInputElement>(null);
 
     function handleNewRoom() 
@@ -68,7 +68,6 @@ const RoomsContainer = () => {
                     placeholder="Room Name"
                     ref={newRoomRef}
                 />
-                {/* Add an input for the timer value */}
                 <motion.input
                     animate={{opacity: showRooms ? 1 : 0}}
                     transition={{duration: 0.5}}
@@ -79,7 +78,6 @@ const RoomsContainer = () => {
                     ref={timerRef}
                 />
                 <label className="flex items-center mb-2 text-white">
-
                     <motion.span animate={{opacity: showRooms ? 1 : 0}}
                                  transition={{duration: 0.5}}
                                  className="ml-2">
