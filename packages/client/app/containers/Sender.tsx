@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
-import {FiSend} from "react-icons/fi";
 import {useRef} from "react";
+import {FiSend} from "react-icons/fi";
 import {useSocket} from "@/app/context/socket.context";
 import EVENTS from "@/app/config/events";
 
