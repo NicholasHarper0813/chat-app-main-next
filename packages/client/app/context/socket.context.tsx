@@ -1,10 +1,9 @@
 "use client";
 import React, {createContext, useContext, useEffect, useState} from "react";
+import EVENTS from "@/app/config/events";
 import io from "socket.io-client";
 import {SOCKET_URL} from "@/app/config/default";
-import EVENTS from "@/app/config/events";
 import {Socket} from "socket.io-client";
-
 
 type Message = {
     message: string;
@@ -12,7 +11,8 @@ type Message = {
     time: string;
 };
 
-interface SocketContext {
+interface SocketContext 
+{
     socket: Socket;
     username?: string;
     setUsername: React.Dispatch<React.SetStateAction<string>>;
@@ -24,31 +24,29 @@ interface SocketContext {
     setTimer: React.Dispatch<React.SetStateAction<number | null>>; // Change this line
 }
 
-interface Props {
+interface Props 
+{
     children: React.ReactNode;
 }
 
 export const socket = io(SOCKET_URL);
 export const SocketContext = createContext<SocketContext>({
     socket,
-    setUsername: () => {
-    },
+    setUsername: () => {},
     rooms: {},
     messages: [],
-    setMessages: () => {
-    },
+    setMessages: () => {},
     timer: null,
-    setTimer: () => {
-    },
+    setTimer: () => {},
 });
 
 export const SocketProvider = ({children}: Props) => {
     const [username, setUsername] = useState("");
-    const [roomId, setRoomId] = useState("");
     const [rooms, setRooms] = useState({});
+    const [roomId, setRoomId] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
-    const [timer, setTimer] = useState<number | null>(null); // Change this line
-
+    const [timer, setTimer] = useState<number | null>(null);
+    
     socket.on(EVENTS.SERVER.ROOMS, (name: string) => {
         setRooms(name);
     });
@@ -67,23 +65,22 @@ export const SocketProvider = ({children}: Props) => {
 
     useEffect(() => {
         socket.on(EVENTS.SERVER.ROOM_MESSAGE, (message: Message) => {
-            if (!document.hasFocus()) {
-                document.title = "New message...";
+            if (!document.hasFocus()) 
+            {
+                document.title = "test_Chap_App...";
             }
 
             setMessages((messages) => [...messages, message]);
         });
         socket.on(EVENTS.SERVER.TIMER_SET, (duration: number) => {
-            setTimer(duration * 60); // Convert minutes to seconds for easier calculation
+            setTimer(duration * 60);
         });
         socket.on(EVENTS.SERVER.TIMER_UPDATE, (currentTime: number) => {
-            setTimer(currentTime); // Update the timer value with the current time from the server
+            setTimer(currentTime);
         });
         socket.on(EVENTS.SERVER.CONVERSATION_ENDED, () => {
-            alert("The conversation has ended."); // Alert the user that the conversation has ended
-            setTimer(null); // Reset the timer value to null
+            setTimer(null);
         });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     return (
@@ -104,9 +101,7 @@ export const SocketProvider = ({children}: Props) => {
     );
 };
 
-// Remove this line
 export default SocketProvider;
-
 export const useSocket = () => {
     return useContext(SocketContext);
 };
