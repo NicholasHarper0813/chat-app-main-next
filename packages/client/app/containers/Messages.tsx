@@ -1,15 +1,15 @@
 'use client';
 
 import EVENTS from "@/app/config/events";
+import {FiSend} from "react-icons/fi";
+import {motion} from "framer-motion";
 import {useSocket} from "@/app/context/socket.context";
 import {useEffect, useRef} from "react";
-import {motion} from "framer-motion";
-import {FiSend} from "react-icons/fi";
 
 const MessagesContainer = () => {
     const {messages, socket, username, roomId, setMessages} = useSocket();
-    const messagesEndRef = useRef<HTMLDivElement>(null);
     const newMessageRef = useRef<HTMLTextAreaElement>(null);
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({behavior: "smooth"});
