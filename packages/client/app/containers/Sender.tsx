@@ -11,7 +11,6 @@ export const Sender = () => {
     function handleMessageSend() 
     {
         const message = newMessageRef.current?.value;
-
         if (!String(message).trim())
         {
             return;
@@ -20,8 +19,8 @@ export const Sender = () => {
         socket.emit(EVENTS.CLIENT.SEND_ROOM_MESSAGE, 
         {
             roomId,
-            message,
             username,
+            message,
         });
 
         const date = new Date();
